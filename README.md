@@ -84,6 +84,8 @@ We can use the `fetch` function to make HTTP requests in the browser. It takes t
 1. Assign the return value to a variable and log it.
 1. Open `index.html` in your browser. You should see the pending promise in the console.
 
+![](https://user-images.githubusercontent.com/9408641/74358318-2dbef800-4db9-11ea-903d-63f0530bcffa.png)
+
 ### Promise terminology
 
 Promises can be in 3 states:
@@ -128,6 +130,8 @@ fetch("url").then(someData => console.log(someData));
 
 1. Use `.then()` to access the result of your PokeAPI request. Log this to see what a JS response object looks like.
 
+![](https://user-images.githubusercontent.com/9408641/74358327-31527f00-4db9-11ea-873d-30865128b313.png)
+
 ## Accessing the response body
 
 We can see the response object, but how do we get the body? The PokeAPI is returning some JSON, but `fetch` can't assume this. We have to explicitly tell it to parse the JSON body using the `response.json()` method. This is _also_ async, which means it also returns a promise. We need to use another `.then()` to access the JSON value.
@@ -155,6 +159,8 @@ fetch("url")
 1. Use `response.json()` to get the response body
 1. Add another `.then()` to log the body. You should see a Pokémon object
 
+![](https://user-images.githubusercontent.com/9408641/74358336-34e60600-4db9-11ea-8394-e6df57e3cef2.png)
+
 ## Handling errors
 
 Sometimes requests go wrong. We can handle errors by passing a function to the promise's `.catch()` method. This will be run _instead of_ the `.then()` if the promise rejects.
@@ -172,11 +178,15 @@ fetch("broken-url")
 
 Note: you would usually want to do something useful with the error instead of just logging it.
 
+![](https://user-images.githubusercontent.com/9408641/74358484-6959c200-4db9-11ea-98a0-7cb2ba107908.png)
+
+---
+
 ## Workshop
 
-### Task 1
-
 We're going to use the `fetch` function to get a user from the GitHub API.
+
+### Task 1
 
 1. Write a `getUser` function that takes a username argument
 1. It should fetch that user's profile from `"https://api.github.com/users/{{USERNAME_HERE}}"`
@@ -187,14 +197,20 @@ We're going to use the `fetch` function to get a user from the GitHub API.
      .catch(error => console.log(error));
    ```
 
+![](https://user-images.githubusercontent.com/9408641/74358494-6bbc1c00-4db9-11ea-9abe-687aa5a574f1.png)
+
 ### Task 2
 
 1. Write a `getRepos` function that takes the Github user response object as an argument.
 1. Fetch the a user using `getUser`, _then_ use `getRepos` to fetch their repos using the `repos_url` from the user object.
 1. Log the array of repos.
 
+![](https://user-images.githubusercontent.com/9408641/74358501-6eb70c80-4db9-11ea-95f8-69264ed3585c.png)
+
 ### Bonus if you have time: Task 4
 
 1. Fetch multiple GitHub profiles _simultaneously_ using your `getUser` function above (you'll have to call it more than once)
 
 You might want to read the docs for [`Promise.all`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)
+
+![](https://user-images.githubusercontent.com/9408641/74358510-7080d000-4db9-11ea-8cf9-63d15b78a618.png)
