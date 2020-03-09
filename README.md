@@ -184,12 +184,12 @@ Note: you would usually want to do something useful with the error instead of ju
 
 ## Workshop
 
-We're going to use the `fetch` function to get a user from the GitHub API.
+We're going to use the `fetch` function to get a user from the GitHub API. The API is free to access, but you might get rate-limited if you make too many requests. We can avoid this by [generating an access token](https://github.com/settings/tokens) and including it in our request URL.
 
 ### Task 1
 
 1. Write a `getUser` function that takes a username argument
-1. It should fetch that user's profile from `"https://api.github.com/users/{{USERNAME_HERE}}"`
+1. It should fetch that user's profile from `"https://api.github.com/users/{{USERNAME_HERE}}?access_token={{TOKEN_HERE}}"`
 1. It should be callable like this:
    ```js
    getUser("oliverjam")
